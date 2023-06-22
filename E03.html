@@ -6,12 +6,38 @@
     
     //Calcule se o usuário possui dinheiro suficiente para realizar a viagem para o destino que pretende. Se o usuário puder viajar, o programa apresentará a mensagem "Boa viagem" e quantos dias poderá ficar no destino, além de qual será o custo da viagem. Caso não possa viajar o programa apresentará a mensagem "Sem Férias" e também apresentará "quantos dinheiros" (R$) estão faltando para realizar a viagem.
 
-    //ENTRADA
+    const Estado = prompt("Para qual estado você deseja viajar? (Responda com RS ou MG.)").trim().toUpperCase();
+    const Dias = Number(prompt("Quantos dias ficara em viagem?").trim().replace(".",","));
+    const Dinheiro = Number(prompt("Quanto dinheiro você possui para gastar na viagem?").trim().replace(".",","));
 
+    if(Estado == "MG"){
+        let CustoMG = Dias * 210
+        let FaltaMG = CustoMG - Dinheiro
+        let DiasMG = Dinheiro / CustoMG
+        let CustomgTotal = CustoMG * DiasMG
+        if(CustoMG > Dinheiro){
+            alert(`Sem Férias`)
+            alert(`Falta ${FaltaMG} reais`)
+        }
+        else if(CustoMG < Dinheiro){
+            alert(`Boa viagem`)
+            alert(`Voce vai poder ficar em MG por ${DiasMG} dias e o custo da viagem sera ${CustomgTotal}`)
+        }
+    }
 
-    //PROCESSAMENTO
-
-
-    //SAÍDA
+    if(Estado == "RS"){
+        let CustoRS = Dias * 180
+        let FaltaRS = CustoRS - Dinheiro
+        let DiasRS = Dinheiro / CustoRS
+        let CustorsTotal = CustoRS * DiasRS
+        if(CustoRS > Dinheiro){
+            alert(`Sem Férias`)
+            alert(`Falta ${FaltaRS} reais`)
+        }
+        else if(CustoRS < Dinheiro){
+            alert(`Boa viagem`)
+            alert(`Voce vai poder ficar em MG por ${DiasRS} dias e o custo da viagem sera ${CustorsTotal}`)
+        }
+    }
 
 </script>
